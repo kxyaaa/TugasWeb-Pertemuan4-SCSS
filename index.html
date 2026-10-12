@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio — SCSS 7-1 Pattern</title>
+    <script type="module" src="/src/js/main.js"></script>
+  </head>
+
+  <body>
+    <div class="particles">
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+
+    <header>
+      <nav>
+        <a href="#beranda" class="logo">Dev<span>.</span>Portfolio</a>
+        <ul>
+          <li><a href="#beranda">Beranda</a></li>
+          <li><a href="#tentang">Tentang</a></li>
+          <li><a href="#skill">Skill</a></li>
+          <li><a href="#proyek">Proyek</a></li>
+          <li><a href="#kontak">Kontak</a></li>
+        </ul>
+        <button class="theme-btn" id="themeBtn" type="button">🌙</button>
+      </nav>
+    </header>
+
+    <main>
+      <section id="beranda">
+        <div class="hero-text reveal">
+          <p class="terminal-text">&gt; hello_world.init()</p>
+          <span class="section-label">PORTFOLIO</span>
+          <h1>Halo, saya <span class="gradient-text">Developer</span></h1>
+          <p>Konversi CSS ke SCSS dengan struktur modular 7-1 pattern, variables, mixins, dan @each loop.</p>
+          <div class="hero-buttons">
+            <a href="#proyek" class="btn btn-primary">Lihat Proyek</a>
+            <a href="#kontak" class="btn btn-secondary">Hubungi Saya</a>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal">
+          <div class="profile-scene">
+            <div class="profile-orbit"></div>
+            <div class="profile-frame">
+              <img class="profile-photo" alt="Foto profil" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='460'%3E%3Crect width='100%25' height='100%25' fill='%2310101d'/%3E%3Ctext x='50%25' y='50%25' fill='%23ff4ecd' font-size='28' text-anchor='middle'%3EFOTO%3C/text%3E%3C/svg%3E" />
+            </div>
+            <div class="tech-badge tech-html">H</div>
+            <div class="tech-badge tech-css">C</div>
+            <div class="tech-badge tech-js">JS</div>
+            <div class="tech-badge tech-code">&lt;/&gt;</div>
+            <div class="profile-note"><strong>Open to work</strong>Frontend developer</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="tentang" class="reveal">
+        <span class="section-label">TENTANG</span>
+        <h2 class="section-title">Tentang Saya</h2>
+        <div class="about-grid">
+          <div class="glass-card">
+            <p>Mahasiswa yang suka membangun antarmuka web yang rapi dan modern.</p>
+            <div class="info-list">
+              <div class="info-item"><small>Nama</small>Nama Kamu</div>
+              <div class="info-item"><small>Kampus</small>Universitas</div>
+              <div class="info-item"><small>Kota</small>Medan</div>
+              <div class="info-item"><small>Fokus</small>Frontend</div>
+            </div>
+          </div>
+          <aside>
+            <h3>Fun fact</h3>
+            <p>Stylesheet ini dulu 2000+ baris CSS, sekarang modular dengan SCSS.</p>
+          </aside>
+        </div>
+        <figure>
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='300'%3E%3Crect width='100%25' height='100%25' fill='%2310101d'/%3E%3C/svg%3E" alt="Ilustrasi" />
+          <figcaption>Ganti dengan gambar milikmu</figcaption>
+        </figure>
+      </section>
+
+      <section id="skill" class="reveal">
+        <span class="section-label">SKILL</span>
+        <h2 class="section-title">Keahlian</h2>
+        <div class="skills-grid">
+          <div class="skill-card"><div class="skill-icon">🎨</div><h3>HTML &amp; CSS</h3><p>Layout responsif dan semantik.</p><span class="skill-tag">frontend</span></div>
+          <div class="skill-card"><div class="skill-icon">⚙️</div><h3>JavaScript</h3><p>Interaksi dan DOM.</p><span class="skill-tag">logic</span></div>
+          <div class="skill-card"><div class="skill-icon">💅</div><h3>SCSS</h3><p>Modular 7-1 pattern.</p><span class="skill-tag">preprocessor</span></div>
+        </div>
+      </section>
+
+      <section id="proyek" class="reveal">
+        <span class="section-label">PROYEK</span>
+        <h2 class="section-title">Proyek</h2>
+        <div class="project-grid">
+          <article class="project-card"><div class="project-image">📊</div><div class="project-content"><h3>Dashboard</h3><p>Dashboard dengan dark/light mode.</p><a href="#" class="project-link">Lihat →</a></div></article>
+          <article class="project-card"><div class="project-image">🧑‍💻</div><div class="project-content"><h3>Portfolio</h3><p>Website portofolio pribadi.</p><a href="#" class="project-link">Lihat →</a></div></article>
+          <article class="project-card"><div class="project-image">🛒</div><div class="project-content"><h3>Toko Online</h3><p>Landing page produk.</p><a href="#" class="project-link">Lihat →</a></div></article>
+        </div>
+      </section>
+
+      <section id="kontak" class="reveal">
+        <span class="section-label">KONTAK</span>
+        <h2 class="section-title">Hubungi Saya</h2>
+        <div class="contact-grid">
+          <div class="contact-info">
+            <p>Punya proyek atau pertanyaan? Kirim pesan lewat form ini.</p>
+          </div>
+          <form id="contactForm">
+            <div><label for="nama">Nama</label><input id="nama" type="text" placeholder="Nama kamu" required /></div>
+            <div><label for="email">Email</label><input id="email" type="email" placeholder="email@contoh.com" required /></div>
+            <div>
+              <label for="topik">Topik</label>
+              <select id="topik"><option>Kolaborasi</option><option>Pertanyaan</option></select>
+            </div>
+            <div><label for="pesan">Pesan</label><textarea id="pesan" placeholder="Tulis pesan..."></textarea></div>
+            <div class="bonus-inputs">
+              <input type="color" value="#ff4ecd" />
+              <input type="range" id="range" min="0" max="100" value="50" />
+              <input type="date" />
+            </div>
+            <span class="range-value" id="rangeValue">50</span>
+            <button class="submit-btn" type="submit">Kirim</button>
+            <div class="form-status" id="formStatus"></div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer>&copy; 2026 Dev.Portfolio — dibuat dengan SCSS</footer>
+    <a href="#beranda" class="back-top">↑</a>
+  </body>
+</html>

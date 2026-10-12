@@ -1,0 +1,50 @@
+@use '../abstracts' as *;
+
+header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  backdrop-filter: blur(15px);
+  background: rgba($bg, 0.65);
+  border-bottom: 1px solid var(--border);
+
+  body.light & {
+    background: rgba($white, 0.7);
+  }
+}
+
+nav {
+  max-width: $container;
+  margin: auto;
+  padding: 18px space(xl);
+  @include flex(space-between, center);
+
+  ul {
+    @include flex($gap: space(xl));
+
+    @include respond(md) {
+      display: none;
+    }
+  }
+
+  ul li a {
+    color: var(--muted);
+    font-size: 0.95rem;
+    transition: $transition-fast;
+
+    &:hover {
+      color: var(--pink);
+    }
+  }
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: bold;
+
+  span {
+    color: var(--pink);
+  }
+}

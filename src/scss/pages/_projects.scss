@@ -1,0 +1,9 @@
+@use '../abstracts' as *;
+
+.project-grid {
+  @include grid(repeat(3, 1fr), space(xl));
+
+  @include respond(md) {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,8 @@
+@use '../abstracts' as *;
+
+// Generate CSS custom properties dari map $theme-dark
+:root {
+  @each $name, $value in $theme-dark {
+    --#{$name}: #{$value};
+  }
+}

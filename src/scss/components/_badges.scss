@@ -1,0 +1,132 @@
+@use '../abstracts' as *;
+
+// ---------- Tag kecil di skill card ----------
+.skill-tag {
+  display: inline-block;
+  margin-top: 18px;
+  padding: space(xs) space(sm);
+  border-radius: $radius-lg;
+  font-size: 0.7rem;
+  font-family: $font-mono;
+  color: var(--pink);
+  background: rgba($pink, 0.08);
+  border: 1px solid rgba($pink, 0.15);
+}
+
+// ---------- Tech badges (HTML / CSS / JS / </>) ----------
+// Posisi & warna tiap badge disimpan di map, lalu di-generate dengan @each
+$tech-badges: (
+  'html': (
+    top: 24%,
+    right: 6%,
+    background: linear-gradient(145deg, #ff704d, #dc352e),
+  ),
+  'css': (
+    bottom: 12%,
+    left: 8%,
+    background: linear-gradient(145deg, #4b9cff, #2865cf),
+    animation-delay: 0.7s,
+  ),
+  'js': (
+    bottom: 8%,
+    right: 8%,
+    background: linear-gradient(145deg, #ffe36a, #f6bf28),
+    color: $ink,
+    animation-delay: 1.4s,
+  ),
+  'code': (
+    top: 38%,
+    left: 2%,
+    background: linear-gradient(145deg, #6969e9, #4545b9),
+    font-size: 1.55rem,
+    animation-delay: 2s,
+  ),
+);
+
+.tech-badge {
+  position: absolute;
+  width: 68px;
+  height: 68px;
+  @include center-grid;
+  border: 1px solid rgba($white, 0.2);
+  border-radius: 18px;
+  color: $white;
+  font-weight: bold;
+  font-size: 1.1rem;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(12px);
+  z-index: 4;
+  animation: techFloat 3.5s infinite ease-in-out;
+}
+
+@each $name, $props in $tech-badges {
+  .tech-#{$name} {
+    @each $prop, $value in $props {
+      #{$prop}: $value;
+    }
+  }
+}
+
+@include respond(md) {
+  .tech-badge {
+    width: 58px;
+    height: 58px;
+    font-size: 0.9rem;
+  }
+}
+
+// ---------- Profile note ----------
+.profile-note {
+  position: absolute;
+  right: 0;
+  top: 52%;
+  width: 190px;
+  padding: 17px space(lg);
+  background: $note-bg;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  color: var(--text);
+  font-size: 0.85rem;
+  line-height: 1.45;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(12px);
+  z-index: 5;
+  animation: noteFloat 4s infinite ease-in-out;
+
+  @include respond(md) {
+    right: 2%;
+    width: 175px;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: 30px;
+    width: 18px;
+    height: 18px;
+    background: $note-bg;
+    border-left: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    transform: rotate(45deg);
+  }
+
+  strong {
+    display: block;
+    margin-bottom: 2px;
+    font-size: 0.95rem;
+  }
+
+  // Light mode
+  body.light & {
+    background: rgba($white, 0.92);
+    color: var(--text);
+    border-color: rgba($ink, 0.12);
+    box-shadow: 0 15px 35px rgba(70, 55, 100, 0.18);
+
+    &::before {
+      background: rgba($white, 0.92);
+      border-color: rgba($ink, 0.12);
+    }
+  }
+}

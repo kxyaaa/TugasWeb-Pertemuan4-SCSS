@@ -1,0 +1,121 @@
+@use '../abstracts' as *;
+
+// ---------- Glass card (About) ----------
+.glass-card {
+  padding: space(xxl);
+  @include glass;
+  transition: $transition-base;
+
+  &:hover {
+    transform: translateY(-8px);
+    border-color: rgba($pink, 0.5);
+  }
+}
+
+.info-item {
+  padding: space(md);
+  background: rgba($white, 0.04);
+  border-radius: $radius-md;
+
+  small {
+    color: var(--muted);
+    display: block;
+  }
+}
+
+aside {
+  padding: space(xl);
+  border-left: 3px solid var(--green);
+  background: var(--card);
+  border-radius: 0 $radius-lg $radius-lg 0;
+
+  h3 {
+    margin-bottom: space(sm);
+    color: var(--green);
+  }
+}
+
+// ---------- Skill card ----------
+.skill-card {
+  position: relative;
+  overflow: hidden;
+  padding: space(xxl) space(lg);
+  border: 1px solid var(--border);
+  background: var(--card);
+  border-radius: $radius-lg;
+  transition: $transition-base;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    top: -45px;
+    right: -45px;
+    border-radius: 50%;
+    background: var(--purple);
+    filter: blur(50px);
+    opacity: 0;
+    transition: $transition-base;
+  }
+
+  &:hover {
+    transform: translateY(-10px) rotate(-1deg);
+    border-color: rgba($pink, 0.45);
+    box-shadow: 0 20px 40px rgba($purple, 0.2);
+
+    &::before {
+      opacity: 0.45;
+    }
+  }
+
+  h3 {
+    margin-bottom: 8px;
+  }
+
+  p {
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+}
+
+.skill-icon {
+  width: 55px;
+  height: 55px;
+  @include center-grid;
+  font-size: 1.8rem;
+  margin-bottom: 18px;
+  border-radius: $radius-md;
+  background: rgba($white, 0.06);
+  border: 1px solid var(--border);
+}
+
+// ---------- Project card ----------
+article.project-card {
+  border-radius: $radius-xl;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--card);
+  transition: 0.5s;
+  @include hover-lift(-12px);
+}
+
+.project-image {
+  height: 180px;
+  @include flex(center, center);
+  font-size: 4rem;
+  background: linear-gradient(135deg, rgba($pink, 0.25), rgba($purple, 0.25));
+}
+
+.project-content {
+  padding: space(xl);
+
+  h3 {
+    margin-bottom: space(sm);
+  }
+
+  p {
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+}

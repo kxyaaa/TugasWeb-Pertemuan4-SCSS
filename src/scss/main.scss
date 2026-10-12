@@ -1,0 +1,12 @@
+// ==========================================================
+// MAIN.SCSS — 7-1 pattern (menggunakan @use, bukan @import)
+// Urutan: abstracts -> vendors -> themes -> base -> layout -> components -> pages
+// ==========================================================
+
+@use 'abstracts';
+@use 'vendors';
+@use 'themes';
+@use 'base';
+@use 'layout';
+@use 'components';
+@use 'pages';

@@ -1,0 +1,32 @@
+@use '../abstracts' as *;
+
+main {
+  max-width: $container;
+  margin: auto;
+  padding: 0 space(xl);
+
+  @include respond(sm) {
+    padding: 0 space(md);
+  }
+}
+
+section {
+  padding: space(section) 0;
+
+  @include respond(sm) {
+    padding: space(section-sm) 0;
+  }
+}
+
+.section-label {
+  display: inline-block;
+  color: var(--pink);
+  font-size: 0.8rem;
+  letter-spacing: 3px;
+  margin-bottom: space(sm);
+}
+
+.section-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  margin-bottom: space(lg);
+}

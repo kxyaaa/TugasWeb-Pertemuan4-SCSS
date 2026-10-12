@@ -1,0 +1,15 @@
+@use 'sass:map';
+@use 'variables' as v;
+
+// space(lg) -> 20px
+@function space($key) {
+  @if not map.has-key(v.$spacing, $key) {
+    @error 'Spacing "#{$key}" tidak ditemukan di $spacing.';
+  }
+  @return map.get(v.$spacing, $key);
+}
+
+// bp(md) -> 850px
+@function bp($key) {
+  @return map.get(v.$breakpoints, $key);
+}

@@ -1,0 +1,8 @@
+@use '../abstracts' as *;
+
+footer {
+  border-top: 1px solid var(--border);
+  padding: space(xxl) space(xl);
+  text-align: center;
+  color: var(--muted);
+}

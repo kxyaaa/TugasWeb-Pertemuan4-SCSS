@@ -1,0 +1,13 @@
+@use '../abstracts' as *;
+
+.skills-grid {
+  @include grid(repeat(3, 1fr), space(lg));
+
+  @include respond(md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond(sm) {
+    grid-template-columns: 1fr;
+  }
+}

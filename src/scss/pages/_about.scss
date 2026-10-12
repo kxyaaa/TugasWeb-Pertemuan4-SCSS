@@ -1,0 +1,18 @@
+@use '../abstracts' as *;
+
+.about-grid {
+  @include grid(1fr 1fr, space(xxl));
+
+  @include respond(md) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.info-list {
+  @include grid(1fr 1fr, space(md));
+  margin-top: space(xl);
+
+  @include respond(sm) {
+    grid-template-columns: 1fr;
+  }
+}

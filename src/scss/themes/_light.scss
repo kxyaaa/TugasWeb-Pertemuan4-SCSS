@@ -1,0 +1,8 @@
+@use '../abstracts' as *;
+
+// Override custom properties ketika <body class="light">
+body.light {
+  @each $name, $value in $theme-light {
+    --#{$name}: #{$value};
+  }
+}

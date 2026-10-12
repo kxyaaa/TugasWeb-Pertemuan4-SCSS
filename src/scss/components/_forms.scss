@@ -1,0 +1,100 @@
+@use 'sass:list';
+@use '../abstracts' as *;
+
+form {
+  display: grid;
+  gap: space(md);
+}
+
+label {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-bottom: 7px;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: space(md);
+  background: rgba($white, 0.05);
+  border: 1px solid var(--border);
+  border-radius: $radius-sm;
+  color: var(--text);
+  outline: none;
+  transition: $transition-fast;
+
+  &:focus {
+    border-color: var(--pink);
+    box-shadow: 0 0 0 4px rgba($pink, 0.1);
+  }
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+select {
+  cursor: pointer;
+
+  option {
+    background: $ink;
+    color: $white;
+  }
+}
+
+input[type='color'] {
+  height: 50px;
+  padding: space(xs);
+  cursor: pointer;
+}
+
+input[type='range'] {
+  height: 50px;
+  padding: 0;
+  accent-color: var(--pink);
+  cursor: pointer;
+}
+
+.bonus-inputs {
+  @include grid(1fr 1fr 1fr, space(sm));
+
+  @include respond(sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.range-value {
+  display: block;
+  text-align: right;
+  margin-top: -5px;
+  color: var(--pink);
+  font-size: 0.75rem;
+  font-family: $font-mono;
+}
+
+// Status form (success / error) dibuat dengan @each
+// format: nama: (warna teks, background, border)
+$form-status: (
+  'success': ($green, rgba(69, 240, 165, 0.08), rgba(69, 240, 165, 0.2)),
+  'error': ($danger, rgba(255, 107, 138, 0.08), rgba(255, 107, 138, 0.2)),
+);
+
+.form-status {
+  display: none;
+  padding: 12px space(md);
+  border-radius: $radius-sm;
+  font-size: 0.85rem;
+  text-align: center;
+
+  @each $name, $c in $form-status {
+    &.#{$name} {
+      display: block;
+      color: list.nth($c, 1);
+      background: list.nth($c, 2);
+      border: 1px solid list.nth($c, 3);
+    }
+  }
+}

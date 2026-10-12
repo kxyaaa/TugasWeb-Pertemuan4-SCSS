@@ -1,0 +1,80 @@
+// ==========================================================
+// VARIABLES — colors, spacing, typography, breakpoints
+// ==========================================================
+
+// ---------- Colors ----------
+$bg: #09090f;
+$bg2: #10101d;
+$text: #f5f5ff;
+$muted: #a9a9c4;
+
+$pink: #ff4ecd;
+$purple: #8b5cf6;
+$blue: #38bdf8;
+$green: #45f0a5;
+$danger: #ff6b8a;
+$white: #ffffff;
+$ink: #171721;
+$note-bg: rgba(30, 27, 45, 0.94);
+
+// Dark theme (default) -> dijadikan CSS custom properties di :root
+$theme-dark: (
+  'bg': $bg,
+  'bg2': $bg2,
+  'card': rgba(255, 255, 255, 0.07),
+  'text': $text,
+  'muted': $muted,
+  'pink': $pink,
+  'purple': $purple,
+  'blue': $blue,
+  'green': $green,
+  'border': rgba(255, 255, 255, 0.12),
+);
+
+// Light theme -> hanya nilai yang berubah (body.light)
+$theme-light: (
+  'bg': #f4f0ff,
+  'bg2': #ffffff,
+  'card': rgba(255, 255, 255, 0.75),
+  'text': $ink,
+  'muted': #5e5e70,
+  'border': rgba(30, 20, 60, 0.12),
+);
+
+// ---------- Spacing scale ----------
+$spacing: (
+  'xs': 5px,
+  'sm': 10px,
+  'md': 15px,
+  'lg': 20px,
+  'xl': 25px,
+  'xxl': 30px,
+  'xxxl': 40px,
+  'huge': 60px,
+  'section-sm': 80px,
+  'section': 110px,
+);
+
+// ---------- Radius ----------
+$radius-sm: 12px;
+$radius-md: 15px;
+$radius-lg: 20px;
+$radius-xl: 25px;
+$radius-pill: 50px;
+
+// ---------- Typography ----------
+$font-base: Arial, Helvetica, sans-serif;
+$font-mono: monospace;
+
+// ---------- Layout ----------
+$container: 1200px;
+
+// ---------- Breakpoints ----------
+$breakpoints: (
+  'md': 850px,
+  'sm': 500px,
+);
+
+// ---------- Transitions ----------
+$transition-fast: 0.3s;
+$transition-base: 0.4s;

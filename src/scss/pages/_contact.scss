@@ -1,0 +1,14 @@
+@use '../abstracts' as *;
+
+.contact-grid {
+  @include grid(0.8fr 1.2fr, space(xxl));
+
+  @include respond(md) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.contact-info p {
+  color: var(--muted);
+  margin: space(md) 0;
+}

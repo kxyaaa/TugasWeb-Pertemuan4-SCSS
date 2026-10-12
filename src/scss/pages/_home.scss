@@ -1,0 +1,136 @@
+@use '../abstracts' as *;
+
+#beranda {
+  min-height: 100vh;
+  @include grid(1.2fr 1fr, space(huge));
+  align-items: center;
+
+  @include respond(md) {
+    grid-template-columns: 1fr;
+    padding-top: 130px;
+  }
+}
+
+.hero-text {
+  h1 {
+    font-size: clamp(3.5rem, 8vw, 7rem);
+    line-height: 0.95;
+    margin: space(lg) 0;
+
+    @include respond(sm) {
+      font-size: 3.5rem;
+    }
+  }
+
+  p {
+    max-width: 600px;
+    color: var(--muted);
+    font-size: 1.05rem;
+  }
+}
+
+.gradient-text {
+  @include gradient-text;
+  animation: gradientMove 4s infinite linear;
+}
+
+.terminal-text {
+  color: var(--green);
+  font-family: $font-mono;
+  margin-bottom: space(md);
+}
+
+.hero-buttons {
+  @include flex($gap: space(md));
+  margin-top: space(xxl);
+  flex-wrap: wrap;
+}
+
+// ---------- Hero profile visual ----------
+.hero-visual {
+  position: relative;
+  min-height: 520px;
+  @include center-grid;
+
+  @include respond(md) {
+    margin-top: space(lg);
+  }
+}
+
+.profile-scene {
+  position: relative;
+  width: min(100%, 500px);
+  height: 520px;
+  @include center-grid;
+
+  @include respond(md) {
+    height: 480px;
+  }
+}
+
+.profile-orbit {
+  position: absolute;
+  width: 125%;
+  height: 47%;
+  left: -12%;
+  top: 28%;
+  border: 3px solid var(--pink);
+  border-radius: 50%;
+  transform: rotate(-12deg);
+  box-shadow:
+    0 0 12px var(--pink),
+    0 0 35px rgba($pink, 0.45);
+  pointer-events: none;
+  z-index: 0;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 1px solid rgba($blue, 0.55);
+    border-radius: 50%;
+    transform: rotate(2deg);
+    opacity: 0.45;
+  }
+}
+
+.profile-frame {
+  position: relative;
+  width: min(78%, 360px);
+  aspect-ratio: 0.78;
+  padding: 4px;
+  border-radius: 30px;
+  background: linear-gradient(145deg, var(--pink), var(--purple), var(--blue));
+  box-shadow:
+    0 0 18px rgba($pink, 0.7),
+    0 0 45px rgba($purple, 0.35);
+  z-index: 2;
+  transition: 0.45s ease;
+
+  &:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow:
+      0 0 25px rgba($pink, 0.8),
+      0 0 60px rgba($blue, 0.3);
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: -35px;
+    border-radius: 40px;
+    background: radial-gradient(circle, rgba($pink, 0.22), transparent 65%);
+    filter: blur(20px);
+    z-index: -1;
+  }
+}
+
+.profile-photo {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 26px;
+  background: var(--bg2);
+}

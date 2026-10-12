@@ -1,0 +1,30 @@
+@use '../abstracts' as *;
+
+// Konfigurasi tiap partikel (nth-child)
+$particles: (
+  1: (left: 10%, top: 20%),
+  2: (left: 80%, top: 30%, background: var(--blue), animation-delay: 2s),
+  3: (left: 70%, top: 80%, background: var(--purple), animation-delay: 4s),
+  4: (left: 20%, top: 70%, background: var(--green), animation-delay: 1s),
+  5: (left: 50%, top: 40%, animation-delay: 3s),
+);
+
+.particles span {
+  position: fixed;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--pink);
+  box-shadow: 0 0 15px var(--pink);
+  animation: float 7s infinite ease-in-out;
+  pointer-events: none;
+  z-index: -1;
+
+  @each $i, $props in $particles {
+    &:nth-child(#{$i}) {
+      @each $prop, $value in $props {
+        #{$prop}: $value;
+      }
+    }
+  }
+}

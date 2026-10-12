@@ -1,0 +1,66 @@
+@use 'variables' as *;
+@use 'functions' as *;
+
+// 1. Flexbox helper
+@mixin flex($justify: flex-start, $align: stretch, $gap: null) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  @if $gap {
+    gap: $gap;
+  }
+}
+
+// 2. Grid helper
+@mixin grid($columns, $gap: null) {
+  display: grid;
+  grid-template-columns: $columns;
+  @if $gap {
+    gap: $gap;
+  }
+}
+
+// 3. Glassmorphism card
+@mixin glass($radius: $radius-xl, $blur: 15px) {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: $radius;
+  backdrop-filter: blur($blur);
+}
+
+// 4. Gradient background (pink -> purple)
+@mixin gradient-bg($angle: 90deg, $from: var(--pink), $to: var(--purple)) {
+  background: linear-gradient($angle, $from, $to);
+}
+
+// 5. Gradient text
+@mixin gradient-text($size: 200%) {
+  background: linear-gradient(90deg, var(--pink), var(--purple), var(--blue));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  background-size: $size;
+}
+
+// 6. Hover effect: naik + glow
+@mixin hover-lift($y: -8px, $glow: null) {
+  &:hover {
+    transform: translateY($y);
+    @if $glow {
+      box-shadow: $glow;
+    }
+  }
+}
+
+// 7. Pusatkan dengan grid
+@mixin center-grid {
+  display: grid;
+  place-items: center;
+}
+
+// 8. Media query (max-width) dengan @content
+@mixin respond($key) {
+  @media (max-width: bp($key)) {
+    @content;
+  }
+}

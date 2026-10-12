@@ -1,0 +1,14 @@
+@use '../abstracts' as *;
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--pink), var(--purple));
+  border-radius: 20px;
+}
